@@ -31,10 +31,18 @@ def estimate_depth(image_path_or_url, model_name="Intel/dpt-large"):
         print(f"Loading model: {model_name}. This might take a moment...")
         processor = DPTImageProcessor.from_pretrained(model_name)
         model = DPTForDepthEstimation.from_pretrained(model_name)
-        print("Model loaded successfully.")
+        
+        # Add GPU support
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        model.to(device)
+        print(f"Model loaded successfully on: {device}")
 
         # --- 3. Prepare image for model ---
         inputs = processor(images=image, return_tensors="pt")
+        
+        # Move inputs to GPU if available
+        for key, value in inputs.items():
+            inputs[key] = value.to(device)
 
         # --- 4. Perform Depth Estimation ---
         print("Estimating depth...")
