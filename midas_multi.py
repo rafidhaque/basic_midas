@@ -19,7 +19,8 @@ def create_depth_maps_batch(input_folder, output_folder, model_name="Intel/dpt-l
     os.makedirs(output_folder, exist_ok=True)
     
     # Supported image extensions
-    supported_extensions = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif'}
+    supported_extensions = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif', '.ppm'}
+
     
     # Get all image files from input folder
     input_path = Path(input_folder)
@@ -124,7 +125,8 @@ def main():
     print("-" * 50)
     
     # Check if input folder has images
-    supported_extensions = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif'}
+    supported_extensions = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif', '.ppm'}
+
     input_path = Path(input_folder)
     image_files = [f for f in input_path.iterdir() 
                    if f.is_file() and f.suffix.lower() in supported_extensions]
