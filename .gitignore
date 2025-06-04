@@ -1,3 +1,6 @@
 /venv/Lib
 /venv
 /Litol_FedDad/synthetic_dataset
+/synthetic_dataset
+Litol_FedDad/my_vgg16_fasterrcnn_source_trained.pth
+/Litol_FedDad/synthetic_dataset_test_source

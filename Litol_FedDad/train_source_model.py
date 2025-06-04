@@ -81,7 +81,8 @@ for epoch in range(NUM_EPOCHS):
         print(f"Epoch {epoch+1}/{NUM_EPOCHS} - No data loaded from source_dataloader.")
 
 print("\n--- Training Finished ---")
-# Optional: save model
-# model_save_path = 'my_vgg16_fasterrcnn_source_trained.pth'
-# torch.save(model.state_dict(), model_save_path)
-# print(f"Model saved to {model_save_path}")
+
+# --- 8. Save the Model ---
+model_save_path = 'my_vgg16_fasterrcnn_source_trained.pth'
+torch.save(model.state_dict(), model_save_path)
+print(f"Model saved to {model_save_path}")
